@@ -8,6 +8,12 @@ class Municipio extends Model
 {
     protected $table = 'municipios';
     protected $fillable= [
-    	'nombre'
+    	'nombre',
+    	'departamento_id'
     ];
+
+    public function departamento()
+    {
+    	return $this->belongsTo(Departamento::class);
+    }
 }

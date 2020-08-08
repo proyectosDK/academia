@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Curso;
+namespace App\Http\Controllers\Bimestre;
 
-use App\Curso;
+use App\Bimestre;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ApiController;
 
-class CursoController extends ApiController
+class BimestreController extends ApiController
 {
     public function __construct()
     {
@@ -17,13 +17,13 @@ class CursoController extends ApiController
 
     public function view()
     {
-       return view('layout.catalogos.curso');
+       return view('layout.catalogos.bimestre');
     }
 
     public function index()
     {
-        $cursos = Curso::all();
-        return $this->showAll($cursos);
+        $bimestres = Bimestre::all();
+        return $this->showAll($bimestres);
     }
 
     public function store(Request $request)
@@ -34,9 +34,9 @@ class CursoController extends ApiController
         
         $this->validate($request, $reglas);
         $data = $request->all();
-        $curso = Curso::create($data);
+        $bimestre = bimestre::create($data);
 
-        return $this->showOne($curso,201);
+        return $this->showOne($bimestre,201);
     }
 
     public function show()
@@ -44,7 +44,7 @@ class CursoController extends ApiController
         
     }
 
-    public function update(Request $request, Curso $curso)
+    public function update(Request $request, Bimestre $bimestre)
     {
         $reglas = [
             'nombre' => 'required|string'
@@ -52,20 +52,20 @@ class CursoController extends ApiController
 
         $this->validate($request, $reglas);
 
-        $curso->nombre = $request->nombre;
+        $bimestre->nombre = $request->nombre;
 
-         if (!$curso->isDirty()) {
+         if (!$bimestre->isDirty()) {
             return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar', 422);
         }
 
-        $curso->save();
-        return $this->showOne($curso);
+        $bimestre->save();
+        return $this->showOne($bimestre);
     }
 
-    public function destroy(Curso $curso)
+    public function destroy(Bimestre $bimestre)
     {
-        $curso->delete();
+        $bimestre->delete();
 
-        return $this->showOne($curso);
+        return $this->showOne($bimestre);
     }
 }

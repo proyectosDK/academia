@@ -17,7 +17,6 @@
 			                    <tr>
 			                        <th>Usuario</th>
 			                        <th>Tipo usuario</th>
-			                        <th>Persona</th>
 			                        <th>Aciones</th>
 			                    </tr>
 			                    </thead>
@@ -28,7 +27,6 @@
                                     <tr>
                                         <td data-bind="text: email"></td>
                                         <td data-bind="text: tipo_usuario.nombre"></td>
-                                        <td data-bind="text: persona.nombre_uno+' '+persona.apellido_uno"></td>
                                         <td width="10%">
                                             <a href="#" class="btn btn-warning btn-xs" data-bind="click: model.userController.editar"><i class="fa fa-pencil-square-o"></i></a>
                                             <a href="#" class="btn btn-danger btn-xs" data-bind="click: model.userController.destroy"><i class="fa fa-trash-o"></i></a>
@@ -54,15 +52,11 @@
 				            <form id="formulario" class="form-horizontal" data-bind="with: model.userController.user">
 
 				                <div class="form-group row">
-				                	<div class="col-lg-6 col-md-6 col-sm-6">
-				                    <label for="linea_chofer_id">Empleado</label>
-				                       <select class="form-control" id="causa_id" data-bind="options: model.userController.personas, optionsText: function(p) {return p.tipo_persona.nombre+' / '+p.nombre_uno+' '+p.apellido_uno}, 
-				                       optionsValue: 'id',
-				                       optionsCaption: '--seleccione empleado--',
-				                       value: persona_id" 
-				                       data-error=".errorPersona"
-					                    required></select>
-					                    <span class="errorPersona text-danger help-inline"></span>
+				                	<div class="col-lg-6">
+				                    <label for="text2">Email</label>
+				                        <input type="email" id="email" name="email" placeholder="ingrese correo electronico" class="form-control"data-bind="value: email"
+					                           data-error=".errorEmail" required>
+					                    <span class="errorEmail text-danger help-inline"></span>
 				                    </div>
 				                    <div class="col-lg-6 col-md-6 col-sm-12">
 				                    <label for="text2">Rol</label>
@@ -74,21 +68,18 @@
 					                    required></select>
 					                    <span class="errorTipo text-danger help-inline"></span>
 				                    </div>
-				                    <div class="col-lg-4">
-				                    <label for="text2">Email</label>
-				                        <input type="text" id="email" name="email" placeholder="ingrese correo electronico" class="form-control"data-bind="value: email"
-					                           data-error=".errorEmail"
-					                           minlength="3" maxlength="25" required readonly>
-					                    <span class="errorEamil text-danger help-inline"></span>
-				                    </div>
-				                    <div class="col-lg-4">
+				                </div>
+
+				                <div class="form-group row" data-bind="visible:!model.userController.editMode()">
+				                    
+				                    <div class="col-lg-6">
 				                    <label for="text2">Contraseña <span class="text-danger"> *</span></label>
 		                                <input type="password" id="password" name="password" placeholder="ingrese contraseña" class="form-control"data-bind="value: password"
 		                                     data-error=".errorPassword"
 		                                     minlength="6" maxlength="25" required>
 		                              <span class="text-danger errorPassword help-inline"></span>
 				                    </div>
-					                 <div class="col-lg-4">
+					                 <div class="col-lg-6">
 					                    <label for="text2">Confirmar contraseña <span class="text-danger"> *</span></label>
 	                                	<input type="password" id="password_confirmation" name="password_confirmation" placeholder="ingrese correo electronico" class="form-control"data-bind="value: password_confirmation"
 	                                     data-error=".errorConfirmation"

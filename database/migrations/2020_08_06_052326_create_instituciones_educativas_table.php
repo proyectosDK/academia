@@ -17,6 +17,7 @@ class CreateInstitucionesEducativasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre',255);
             $table->unsignedBigInteger('municipio_id');
+            $table->string('direccion',255)->nullable();
             $table->string('telefono',15);
             $table->string('email',25)->nullable();
             $table->timestamps();

@@ -37,11 +37,23 @@
 <!-- scripts  -->
 <script src="{{asset('scripts/js/model.js')}}"></script>
 <script src="{{asset('scripts/js/curso.js')}}"></script>
+<script src="{{asset('scripts/js/bimestre.js')}}"></script>
+<script src="{{asset('scripts/js/departamento.js')}}"></script>
+<script src="{{asset('scripts/js/municipio.js')}}"></script>
+<script src="{{asset('scripts/js/institucionEducativa.js')}}"></script>
+
+
 <script src="{{asset('scripts/js/tipoUsuario.js')}}"></script>
 <script src="{{asset('scripts/js/user.js')}}"></script>
 
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/CursoService.js')}}"></script>
+<script src="{{asset('scripts/services/BimestreService.js')}}"></script>
+<script src="{{asset('scripts/services/DepartamentoService.js')}}"></script>
+<script src="{{asset('scripts/services/MunicipioService.js')}}"></script>
+<script src="{{asset('scripts/services/InstitucionEducativaService.js')}}"></script>
+
+
 <script src="{{asset('scripts/services/TipoUsuarioService.js')}}"></script>
 <script src="{{asset('scripts/services/UserService.js')}}"></script>
 

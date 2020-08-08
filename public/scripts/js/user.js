@@ -3,7 +3,6 @@ model.userController = {
 
     user: {
         id: ko.observable(null),
-        persona_id: ko.observable(null),
         tipo_usuario_id: ko.observable(null),
         email: ko.observable(""),
         password: ko.observable(""),
@@ -13,7 +12,6 @@ model.userController = {
 
     users: ko.observableArray([]),
     tipoUsuarios: ko.observableArray([]),
-    personas: ko.observableArray([]),
     insertMode: ko.observable(false),
     editMode: ko.observable(false),
     gridMode: ko.observable(true),
@@ -24,7 +22,6 @@ model.userController = {
     map: function (data) {
         var form = model.userController.user;
         form.id(data.id);
-        form.persona_id(data.persona_id);
         form.tipo_usuario_id(data.tipo_usuario_id);
         form.email(data.email);
     },
@@ -179,22 +176,6 @@ model.userController = {
         .catch(r => {});
     },
 
-    //funcion para volver al index, resetea variables de bandera
-    getPersonas: function(){
-        var self = model.userController;
-        //llamada al servicio
-        personaService.getAll()
-        .then(r => {
-            self.personas([]);
-            r.data.forEach(function(item){
-                if(item.tipo_persona.nombre.substring(0,11).toLowerCase() !== 'propietario' && item.tipo_persona.nombre.substring(0,6).toLowerCase() !== 'piloto'){
-                    self.personas.push(item);
-                }  
-            })
-        })
-        .catch(r => {});
-    },
-
     getAll: function(){
         let self = model.userController;
         //llamada al servicio
@@ -212,7 +193,6 @@ model.userController = {
         self.getAll();
 
         self.getTipoUsuarios();
-        self.getPersonas();
     },
 
     cambiar: function(){
@@ -248,10 +228,10 @@ model.userController = {
     },
 };
 
-model.userController.user.persona_id.subscribe(function (value){
+/*model.userController.user.persona_id.subscribe(function (value){
     let self = model.userController;
     if(value !== undefined && value !== null){
         var persona = self.personas().find(x=>x.id === value);  
         self.user.email(persona.email); 
     }
-});
+});*/

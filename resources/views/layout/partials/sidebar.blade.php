@@ -34,14 +34,38 @@
               <li class="">
                 <a href="javascript:;">
                   <i class="fa fa-building "></i>
-                  <span class="link-title">Administracion</span>
+                  <span class="link-title">Catálogos</span>
                   <span class="fa arrow"></span>
                 </a>
                 @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
+                    <a href="{{ route('departamentosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Departamentos</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('municipiosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Municipios</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
                     <a href="{{ route('cursosView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Cursos</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('bimestresView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Bimestres</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('institucionesView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Instituciones Educativas</a>
                   </li>
                 </ul>
                 @endif

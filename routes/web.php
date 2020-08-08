@@ -21,6 +21,20 @@ Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::get('cursosView', 'Curso\CursoController@view')->name('cursosView');
 Route::resource('cursos', 'Curso\CursoController', ['except' => ['create', 'edit']]);
 
+Route::get('bimestresView', 'Bimestre\BimestreController@view')->name('bimestresView');
+Route::resource('bimestres', 'Bimestre\BimestreController', ['except' => ['create', 'edit']]);
+
+//=====================DEPARTAMENTOS DE GUATEMALA==========================//
+Route::get('departamentosView', 'Departamento\DepartamentoController@view')->name('departamentosView');
+Route::resource('departamentos', 'Departamento\DepartamentoController', ['except' => ['create', 'edit']]);
+//=====================MUNICIPIOS DE GUATEMALA==========================//
+Route::get('municipiosView', 'Municipio\MunicipioController@view')->name('municipiosView');
+Route::resource('municipios', 'Municipio\MunicipioController', ['except' => ['create', 'edit']]);
+
+//=====================INSTITUCIONES EDUCATIVAS==========================//
+Route::get('institucionesView', 'InstitucionEducativa\InstitucionEducativaController@view')->name('institucionesView');
+Route::resource('institucionesEducativas', 'InstitucionEducativa\InstitucionEducativaController', ['except' => ['create', 'edit']]);
+
 Route::get('tipoUsuariosView', 'TipoUsuario\TipoUsuarioController@view')->name('tipoUsuariosView');
 Route::resource('tipoUsuarios', 'TipoUsuario\TipoUsuarioController', ['except' => ['create', 'edit']]);
 

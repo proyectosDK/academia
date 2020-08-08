@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\User;
-use App\Persona;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
@@ -33,29 +32,23 @@ class UserController extends ApiController
     //retorna todos los registros de la tabla
     public function index()
     {
-        $users = User::with('persona','tipo_usuario')->get();
+        $users = User::with('tipo_usuario')->get();
         return $this->showAll($users);
     }
 
     //guardar un nuevo registro
     public function store(Request $request)
     {
-        $usuario = User::where('persona_id',$request->persona_id)->first();
-
-        if($usuario !== null) return $this->errorResponse('persona ya tiene usuario creado', 422);
-
         $reglas = [
+            'email'=> 'required|email|unique:users',
             'password' => 'required', 'string', 'min:6', 'confirmed',
-            'tipo_usuario_id' =>'required|exists:tipo_usuarios,id',
-            'persona_id' =>'required|exists:personas,id'
+            'tipo_usuario_id' =>'required|exists:tipo_usuarios,id'
         ];
-
-        $persona = persona::find($request->persona_id);
         
         $this->validate($request, $reglas);
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
-        $data['email'] = $persona->email;
+        $data['email'] = $request->email;
 
         $user = User::create($data);
 
@@ -72,12 +65,14 @@ class UserController extends ApiController
     public function update(Request $request, User $user)
     {
         $reglas = [
-            'tipo_usuario_id' =>'required|exists:tipo_usuarios,id'
+            'tipo_usuario_id' =>'required|exists:tipo_usuarios,id',
+            'email' => 'required|string|unique:users,email,' . $user->id,
         ];
 
         $this->validate($request, $reglas);
 
         $user->tipo_usuario_id = $request->tipo_usuario_id;
+        $user->email = $request->email;
 
          if (!$user->isDirty()) {
             return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar', 422);
@@ -91,8 +86,7 @@ class UserController extends ApiController
     //eliminar registro a nivel logico
     public function destroy(User $user)
     {
-        if($user->delete())
-            Log::critical('DELETE '.$user);  
+        $user->delete(); 
 
         return $this->showOne($user);
     }

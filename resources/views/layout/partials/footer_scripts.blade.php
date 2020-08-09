@@ -41,6 +41,11 @@
 <script src="{{asset('scripts/js/departamento.js')}}"></script>
 <script src="{{asset('scripts/js/municipio.js')}}"></script>
 <script src="{{asset('scripts/js/institucionEducativa.js')}}"></script>
+<script src="{{asset('scripts/js/encargado.js')}}"></script>
+<script src="{{asset('scripts/js/ciclo.js')}}"></script>
+<script src="{{asset('scripts/js/alumno.js')}}"></script>
+<script src="{{asset('scripts/js/inscripcion.js')}}"></script>
+<script src="{{asset('scripts/js/nota.js')}}"></script>
 
 
 <script src="{{asset('scripts/js/tipoUsuario.js')}}"></script>
@@ -52,6 +57,11 @@
 <script src="{{asset('scripts/services/DepartamentoService.js')}}"></script>
 <script src="{{asset('scripts/services/MunicipioService.js')}}"></script>
 <script src="{{asset('scripts/services/InstitucionEducativaService.js')}}"></script>
+<script src="{{asset('scripts/services/EncargadoService.js')}}"></script>
+<script src="{{asset('scripts/services/CicloService.js')}}"></script>
+<script src="{{asset('scripts/services/AlumnoService.js')}}"></script>
+<script src="{{asset('scripts/services/InscripcionService.js')}}"></script>
+<script src="{{asset('scripts/services/NotaService.js')}}"></script>
 
 
 <script src="{{asset('scripts/services/TipoUsuarioService.js')}}"></script>

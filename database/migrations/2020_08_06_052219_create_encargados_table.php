@@ -15,7 +15,8 @@ class CreateEncargadosTable extends Migration
     {
         Schema::create('encargados', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('cui');
+            $table->string('cui',15);
+            $table->string('nit',15)->nullable();
             $table->string('primer_nombre',25);
             $table->string('segundo_nombre',25)->nullable();
             $table->string('primer_apellido',25);
@@ -23,7 +24,6 @@ class CreateEncargadosTable extends Migration
             $table->string('telefono',15);
             $table->unsignedBigInteger('municipio_id');
             $table->string('direccion',255);
-            $table->char('tipo',1)->default('P');
             $table->date('fecha_nac');
 
             $table->timestamps();

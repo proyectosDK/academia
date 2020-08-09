@@ -18,7 +18,7 @@ class CreateCiclosTable extends Migration
             $table->integer('ciclo');
             $table->date('inicio');
             $table->date('fin');
-            $table->boolean('activo')->default(True);
+            $table->boolean('activo')->default(False);
             $table->timestamps();
         });
     }

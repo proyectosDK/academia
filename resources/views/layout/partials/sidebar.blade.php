@@ -70,6 +70,58 @@
                 </ul>
                 @endif
               </li>
+
+
+              <li class="">
+                <a href="javascript:;">
+                  <i class="fa fa-bank "></i>
+                  <span class="link-title">Administración</span>
+                  <span class="fa arrow"></span>
+                </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('encargadosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Encargados</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('alumnosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Alumnos</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('ciclosView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Ciclos</a>
+                  </li>
+                </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('inscripcionsView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Inscripciones</a>
+                  </li>
+                </ul>
+                @endif
+              </li>
+
+              <li class="">
+                <a href="javascript:;">
+                  <i class="fa fa-file "></i>
+                  <span class="link-title">Notas</span>
+                  <span class="fa arrow"></span>
+                </a>
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('notasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Ingresar notas</a>
+                  </li>
+                </ul>
+                @endif
+
+
               <li class="">
                 <a href="javascript:;">
                   <i class="fa fa-user "></i>

@@ -15,11 +15,11 @@ class CreateNotasTable extends Migration
     {
         Schema::create('notas', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('inscripcion_id');
+            $table->unsignedBigInteger('ciclo_id');
             $table->unsignedBigInteger('bimestre_id');
             $table->timestamps();
 
-            $table->foreign('inscripcion_id')->references('id')->on('inscripcions');
+            $table->foreign('ciclo_id')->references('id')->on('ciclos');
             $table->foreign('bimestre_id')->references('id')->on('bimestres');
         });
     }

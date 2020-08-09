@@ -35,6 +35,28 @@ Route::resource('municipios', 'Municipio\MunicipioController', ['except' => ['cr
 Route::get('institucionesView', 'InstitucionEducativa\InstitucionEducativaController@view')->name('institucionesView');
 Route::resource('institucionesEducativas', 'InstitucionEducativa\InstitucionEducativaController', ['except' => ['create', 'edit']]);
 
+//=====================ENCARGADOS==========================//
+Route::get('encargadosView', 'Encargado\EncargadoController@view')->name('encargadosView');
+Route::resource('encargados', 'Encargado\EncargadoController', ['except' => ['create', 'edit']]);
+
+//=====================CICLOS==========================//
+Route::get('ciclosView', 'Ciclo\CicloController@view')->name('ciclosView');
+Route::resource('ciclos', 'Ciclo\CicloController', ['except' => ['create', 'edit']]);
+Route::resource('ciclos.inscripciones', 'Ciclo\CicloInscripcionController', ['except' => ['create', 'edit']]);
+
+//=====================ALUMNOS==========================//
+Route::get('alumnosView', 'Alumno\AlumnoController@view')->name('alumnosView');
+Route::resource('alumnos', 'Alumno\AlumnoController', ['except' => ['create', 'edit']]);
+
+//=====================INSCRIPCIONES==========================//
+Route::get('inscripcionsView', 'Inscripcion\InscripcionController@view')->name('inscripcionsView');
+Route::resource('inscripcions', 'Inscripcion\InscripcionController', ['except' => ['create', 'edit']]);
+
+
+//=====================NOTAS==========================//
+Route::get('notasView', 'Nota\NotaController@view')->name('notasView');
+Route::resource('notas', 'Nota\NotaController', ['except' => ['create', 'edit']]);
+
 Route::get('tipoUsuariosView', 'TipoUsuario\TipoUsuarioController@view')->name('tipoUsuariosView');
 Route::resource('tipoUsuarios', 'TipoUsuario\TipoUsuarioController', ['except' => ['create', 'edit']]);
 

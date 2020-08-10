@@ -119,6 +119,12 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Ingresar notas</a>
                   </li>
                 </ul>
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('boletasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Consulta notas</a>
+                  </li>
+                </ul>
                 @endif
 
 

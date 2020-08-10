@@ -4,8 +4,15 @@ notaService = {
     },
 
     get(id) {
-        let self = this;
-        return self.axios.get(`${self.baseUrl}/${id}`);
+        return self.axios.get(`notas/${id}`);
+    },
+
+    getNotas(id) {
+        return self.axios.get(`notas/${id}/cursos`);
+    },
+
+    getBoleta(alumno_id,ciclo_id) {
+        return self.axios.get(`notas/${alumno_id}/${ciclo_id}`);
     },
 
     create(data) {

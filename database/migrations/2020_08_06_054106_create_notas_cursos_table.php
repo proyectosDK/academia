@@ -21,7 +21,7 @@ class CreateNotasCursosTable extends Migration
 
             $table->timestamps();
 
-            $table->foreign('nota_id')->references('id')->on('notas');
+            $table->foreign('nota_id')->references('id')->on('notas')->onDelete('cascade');
             $table->foreign('cursos_inscripcion_id')->references('id')->on('cursos_inscripcions');
         });
     }

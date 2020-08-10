@@ -33,6 +33,7 @@
 <script src="{{asset('js/jquery.steps.min.js')}}"></script>
 <script src="{{asset('js/axios.min.js')}}"></script>
 <script src="{{asset('js/bootstrap-select.min.js')}}"></script>
+<script src="{{asset('js/jquery.blockUI.js')}}"></script>
 
 <!-- scripts  -->
 <script src="{{asset('scripts/js/model.js')}}"></script>
@@ -46,6 +47,7 @@
 <script src="{{asset('scripts/js/alumno.js')}}"></script>
 <script src="{{asset('scripts/js/inscripcion.js')}}"></script>
 <script src="{{asset('scripts/js/nota.js')}}"></script>
+<script src="{{asset('scripts/js/boleta.js')}}"></script>
 
 
 <script src="{{asset('scripts/js/tipoUsuario.js')}}"></script>
@@ -69,10 +71,13 @@
 
 <script>
 	$(document).ready(function () {
-	    console.log("applyBindings");
+	    $.blockUI(blockUIoptions);
+
 	    ko.applyBindings();
 
 	    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+	    $.unblockUI();
 	});
 </script>
 

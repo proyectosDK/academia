@@ -56,9 +56,15 @@ Route::resource('inscripcions', 'Inscripcion\InscripcionController', ['except' =
 //=====================NOTAS==========================//
 Route::get('notasView', 'Nota\NotaController@view')->name('notasView');
 Route::resource('notas', 'Nota\NotaController', ['except' => ['create', 'edit']]);
+Route::resource('notas.cursos', 'Nota\NotaCursoController', ['except' => ['create', 'edit']]);
+
+//=====================BOLETA NOTAS==========================//
+Route::get('boletasView', 'Nota\BoletaController@view')->name('boletasView');
+Route::get('notas/{alumno_id}/{ciclo_id}', 'Nota\BoletaController@index');
 
 Route::get('tipoUsuariosView', 'TipoUsuario\TipoUsuarioController@view')->name('tipoUsuariosView');
 Route::resource('tipoUsuarios', 'TipoUsuario\TipoUsuarioController', ['except' => ['create', 'edit']]);
+
 
 Route::get('usersView', 'User\userController@view')->name('usersView');
 Route::resource('users', 'User\userController', ['except' => ['create', 'edit']]);

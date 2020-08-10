@@ -11,7 +11,7 @@ class CicloInscripcionController extends ApiController
 {
     public function index(Ciclo $ciclo)
     {
-        $inscripciones = $ciclo->inscripciones()->with('alumno','cursos')->get();
+        $inscripciones = $ciclo->inscripciones()->with('alumno','cursos.nota_curso.nota_c')->get();
         return $this->showAll($inscripciones);
     }
 }

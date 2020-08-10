@@ -11,6 +11,7 @@ model.userController = {
     },
 
     users: ko.observableArray([]),
+    loadingVisible: ko.observable(false),
     tipoUsuarios: ko.observableArray([]),
     insertMode: ko.observable(false),
     editMode: ko.observable(false),

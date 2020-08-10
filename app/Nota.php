@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Bimestre;
+use App\NotasCurso;
 use Illuminate\Database\Eloquent\Model;
 
 class Nota extends Model
@@ -20,5 +21,9 @@ class Nota extends Model
 
     public function bimestre(){
     	return $this->belongsTo(Bimestre::class);
+    }
+
+    public function notas_cursos(){
+        return $this->hasMany(NotasCurso::class);
     }
 }

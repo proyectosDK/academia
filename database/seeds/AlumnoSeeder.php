@@ -1,7 +1,10 @@
 <?php
 
+use App\Nota;
 use App\Alumno;
+use App\NotasCurso;
 use App\Inscripcion;
+use App\CursoInscripcion;
 use App\CursosInscripcion;
 use Illuminate\Database\Seeder;
 
@@ -14,7 +17,7 @@ class AlumnoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //insertar notas.
 
         for($i=0; $i<10; $i++){
             $data = new Alumno();
@@ -36,10 +39,27 @@ class AlumnoSeeder extends Seeder
             $ins->save();
 
             for ($j=1; $j<5; $j++){
-                $cursos = new CursosInscripcion;
+                $cursos = new CursoInscripcion;
                 $cursos->curso_id = $j;
                 $cursos->inscripcion_id = $ins->id;
                 $cursos->save();
+            }
+        }
+
+        for($i=1; $i<=4; $i++){
+            $nota = new Nota;
+            $nota->ciclo_id = 1;
+            $nota->bimestre_id =$i; 
+            $nota->save();
+
+            $inscripciones = CursoInscripcion::all();
+
+            foreach ($inscripciones as $ins) {
+                $nota_bimestre = new NotasCurso;
+                $nota_bimestre->nota_id = $nota->id;
+                $nota_bimestre->cursos_inscripcion_id = $ins->id;
+                $nota_bimestre->nota = rand(40,100);
+                $nota_bimestre->save();
             }
         }
     }

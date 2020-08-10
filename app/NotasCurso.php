@@ -12,15 +12,16 @@ class NotasCurso extends Model
 
     protected $fillable = [
     	'nota_id',
-    	'cursos_incripcion_id'
+    	'cursos_inscripcion_id'
     ];
 
-    public function nota(){
-    	return $this->belongsTo(Nota::class);
+    //relación tabla notas
+    public function nota_c(){
+    	return $this->belongsTo(Nota::class,'nota_id');
     }
 
     public function curso_inscripcion(){
-    	return $this->belongsTo(CursosInscripcion::class);
+    	return $this->belongsTo(CursoInscripcion::class,'cursos_inscripcion_id');
     }
 
 }

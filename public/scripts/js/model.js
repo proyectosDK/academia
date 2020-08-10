@@ -34,6 +34,26 @@ dataTableOptions = {
     }
 };
 
+blockUIoptions = {
+    css: {
+        border: 'none',
+        padding: '15px',
+        backgroundColor: '#000',
+        '-webkit-border-radius': '10px',
+        '-moz-border-radius': '10px',
+        opacity: .5,
+        color: '#fff'
+    },
+    message: '<div class="spinner">' +
+    '<div class="rect1"></div>' +
+    '<div class="rect2"></div>' +
+    '<div class="rect3"></div>' +
+    '<div class="rect4"></div>' +
+    '<div class="rect5"></div>' +
+    ' Loading ... ' +
+    '</div>'
+};
+
 formatCurrency = function (amount) {
         if (!amount) {
             return "";

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Inscripcion;
 use Illuminate\Database\Eloquent\Model;
 
 class Alumno extends Model
@@ -28,5 +29,9 @@ class Alumno extends Model
 
     public function encargado(){
         return $this->belongsTo(Encargado::class);
+    }
+
+    public function inscripciones(){
+        return $this->hasMany(Inscripcion::class);
     }
 }

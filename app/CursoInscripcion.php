@@ -27,4 +27,8 @@ class CursoInscripcion extends Model
     public function notas(){
         return $this->hasMany(NotasCurso::class);
     }
+
+    public function nota_curso(){
+        return $this->hasMany(NotasCurso::class,'cursos_inscripcion_id');
+    }
 }

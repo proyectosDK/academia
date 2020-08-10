@@ -66,10 +66,12 @@ class CicloController extends ApiController
 
         $this->validate($request, $reglas);
 
-        DB::table('ciclos')->where('activo', True)->update(array('activo' => False));
+        $year = Carbon::now()->year;
+
+        DB::table('ciclos')->where('activo', True)->where('ciclo','!=',$year)->update(array('activo' => False));
 
         $year = Carbon::now()->year;
-        if($year == $request->ciclo) $data['activo'] = True;
+        if($year == $request->ciclo) $ciclo->activo = True;
 
         $ciclo->ciclo = $request->ciclo;
         $ciclo->inicio = $request->inicio;

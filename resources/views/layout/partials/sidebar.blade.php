@@ -5,9 +5,9 @@
             <span class="fa fa-user"></span>
         </div>
         <div class="user-wrapper bg-dark">
-            <a class="user-link" href="">
-              @if(isset(Auth::user()->foto))
-                    <img src="{{URL::asset('img/'.Auth::user()->foto)}}" class="media-object img-thumbnail user-img" alt="User Image" style="height: 70px; width: 60px;">
+            <a class="user-link" href="/">
+              @if(isset(Auth::user()->avatar))
+                    <img src="{{URL::asset('img/'.Auth::user()->avatar)}}" class="media-object img-thumbnail user-img" alt="User Image" style="height: 70px; width: 60px;">
               @else
                 <img class="media-object img-thumbnail user-img" alt="User Picture" src="{{ asset('img/user.gif') }}">
               @endif
@@ -107,12 +107,13 @@
               </li>
 
               <li class="">
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <a href="javascript:;">
                   <i class="fa fa-file "></i>
                   <span class="link-title">Notas</span>
                   <span class="fa arrow"></span>
                 </a>
-                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('notasView') }}">
@@ -126,7 +127,24 @@
                   </li>
                 </ul>
                 @endif
+              </li>
 
+              <li class="">
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                <a href="javascript:;">
+                  <i class="fa fa-file "></i>
+                  <span class="link-title">Consultas</span>
+                  <span class="fa arrow"></span>
+                </a>
+                
+                <ul class="collapse">
+                  <li>
+                    <a href="{{ route('consultasView') }}">
+                      <i class="fa fa-angle-right"></i>&nbsp; Reportes</a>
+                  </li>
+                </ul>
+                @endif
+              </li>
 
               <li class="">
                 <a href="javascript:;">

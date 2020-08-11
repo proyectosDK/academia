@@ -8,6 +8,7 @@ model.cicloController = {
     },
 
     ciclos: ko.observableArray([]),
+    info_ciclos: ko.observableArray([]),//arreglo para guardar para dashboard
     insertMode: ko.observable(false),
     editMode: ko.observable(false),
     gridMode: ko.observable(true),

@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('tipo_usuario_id');
+            $table->string('avatar',255)->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

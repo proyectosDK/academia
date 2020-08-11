@@ -21,6 +21,8 @@ class CreateInstitucionesEducativasTable extends Migration
             $table->string('telefono',15);
             $table->string('email',25)->nullable();
             $table->timestamps();
+
+            $table->foreign('municipio_id')->references('id')->on('municipios');
         });
     }
 

@@ -12,11 +12,15 @@ class CicloSeeder extends Seeder
      */
     public function run()
     {
-        $data = new Ciclo;
-        $data->ciclo = 2020;
-        $data->inicio = '2020-01-01';
-        $data->fin = '2020-10-24';
-        $data->activo = True;
-        $data->save();
+        for ($i=0; $i < 10 ; $i++) { 
+            $data = new Ciclo;
+            $data->ciclo = 2020 - $i;
+            $data->inicio = $data->ciclo.'-01-01';
+            $data->fin = $data->ciclo.'-10-24';
+            $data->activo = False;
+            if($data->ciclo == 2020) $data->activo = True;
+            $data->save();
+        }
+    
     }
 }

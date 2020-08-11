@@ -62,20 +62,29 @@
       <div class="modal-body" id="print">
       	<div class="modal-header">
       		<div class="row col-lg-12 col-md-12">
-      			<div class="col-md-3 col-lg-3">
-      				<img height="50px" src="{{asset('img/logo.jpg')}}" alt="">
-      			</div>
-      			<div class="col-md-6 col-lg-6">
+      			
+      			<div class="col-md-12 col-lg-12">
       				<h4 class="modal-title text-center">ACADEMIA DE COMPUTACIÓN </h4>
       				<h4 class="modal-title text-center">CIUDAD PEDRO DE ALVARADO </h4>
       			</div>
       		</div>
       		<hr />
 
-        <h4 class="modal-title text-center" data-bind="text: 'CALIFICACIONES CICLO ESCOLAR '+ model.boletaController.info.ciclo()"></h4><br />
-        <label>Codigo alumno: </label> <span data-bind="text: model.boletaController.info.codigo()"></span><br />
-        <label>Alumno: </label> <span data-bind="text: model.boletaController.info.alumno()"></span><br />
-        <label>Dirección: </label> <span data-bind="text: model.boletaController.info.direccion()"></span><br />
+        <h4 class="modal-title text-center" data-bind="text: 'CALIFICACIONES CICLO ESCOLAR '+ model.boletaController.info.ciclo()"></h4>
+        <div class="row">
+        	<div class="form-group row">
+        	<div>
+        		<img class="media-object img-thumbnail user-img pull-left" alt="User Image" style="height: 100px; width: 90px;"
+        		data-bind="attr:{src: (model.boletaController.info.foto() !== null && model.boletaController.info.foto() !== '' ? '/img/'+model.boletaController.info.foto() : emptyLogo)}">
+
+        		<label>&nbsp;Codigo alumno: </label> <span data-bind="text: model.boletaController.info.codigo()"></span><br />
+		        <label>&nbsp;Alumno: </label> <span data-bind="text: model.boletaController.info.alumno()"></span><br />
+		        <label>&nbsp;Dirección: </label> <span data-bind="text: model.boletaController.info.direccion()"></span>
+        	</div>
+        	
+        	</div>
+        	
+        </div>
       </div>
         <table class="table table-bordered">
             <thead>

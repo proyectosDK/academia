@@ -20,7 +20,7 @@ class Inscripcion extends Model
     ];
 
     public function institucion_educativa(){
-    	return $this->belongsTo(InstitucionesEducativa::class);
+    	return $this->belongsTo(InstitucionesEducativa::class, 'instituciones_educativa_id');
     }
 
     public function alumno(){

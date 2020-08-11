@@ -28,7 +28,7 @@
                                                   }">
                                     <tr>
                                     	<td data-bind="text: cui"></td>
-                                        <td data-bind="text: primer_nombre"></td>
+                                        <td data-bind="text: primer_nombre + ' '+segundo_nombre+' '+primer_apellido+' '+segundo_apellido"></td>
                                         <td data-bind="text: telefono"></td>
                                      
                                         <td data-bind="text: direccion+' '+municipio.nombre+', '+municipio.departamento.nombre"></td>

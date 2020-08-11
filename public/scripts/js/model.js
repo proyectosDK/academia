@@ -44,7 +44,7 @@ blockUIoptions = {
         opacity: .5,
         color: '#fff'
     },
-    message: '<div class="spinner">' +
+    message: '<div class="spinner"> ' +
     '<div class="rect1"></div>' +
     '<div class="rect2"></div>' +
     '<div class="rect3"></div>' +

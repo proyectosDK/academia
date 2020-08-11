@@ -15,6 +15,18 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
+//=====================GRAFICAS PARA DASHBOARD==========================//
+Route::get('/dashboard/info', 'Dashboard\DashboardController@info')->name('info');
+Route::get('/dashboard/ciclos', 'Dashboard\DashboardController@resumenCiclos')->name('ciclos_d');
+Route::get('/dashboard/cursos', 'Dashboard\DashboardController@resumenCursos')->name('cursos_d');
+Route::get('/dashboard/instituciones', 'Dashboard\DashboardController@resumenInstituciones')->name('instituciones_d');
+
+
+//=====================REPORTES, CONSULTAS==========================//
+Route::get('consultasView', 'Reporte\ReporteController@view')->name('consultasView');
+Route::get('/consultas_inscripciones/{ciclo_id}', 'Reporte\ReporteController@inscripcionesByCiclo')->name('consultas_inscripciones');
+Route::get('/consultas_print_inscripciones/{ciclo_id}', 'Reporte\ReporteController@printInscripciones')->name('consultas_print_inscripciones');
+Route::get('/reporte_alumnos', 'Reporte\ReporteController@printAlumnos')->name('reporte_alumnos');
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

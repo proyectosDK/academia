@@ -48,6 +48,7 @@
 <script src="{{asset('scripts/js/inscripcion.js')}}"></script>
 <script src="{{asset('scripts/js/nota.js')}}"></script>
 <script src="{{asset('scripts/js/boleta.js')}}"></script>
+<script src="{{asset('scripts/js/reporte.js')}}"></script>
 
 
 <script src="{{asset('scripts/js/tipoUsuario.js')}}"></script>
@@ -64,6 +65,7 @@
 <script src="{{asset('scripts/services/AlumnoService.js')}}"></script>
 <script src="{{asset('scripts/services/InscripcionService.js')}}"></script>
 <script src="{{asset('scripts/services/NotaService.js')}}"></script>
+<script src="{{asset('scripts/services/ReporteService.js')}}"></script>
 
 
 <script src="{{asset('scripts/services/TipoUsuarioService.js')}}"></script>

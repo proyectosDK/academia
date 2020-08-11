@@ -9,7 +9,8 @@ model.boletaController = {
         alumno: ko.observableArray(""),
         codigo: ko.observable(""),
         direccion: ko.observable(""),
-        ciclo: ko.observable("")
+        ciclo: ko.observable(""),
+        foto: ko.observable("")
     },
 
     alumnos: ko.observableArray([]),
@@ -21,9 +22,10 @@ model.boletaController = {
         var id = self.boleta.alumno_id();
         var ciclo_id = self.boleta.ciclo_id();
         var alumno = self.alumnos().find(x=>x.id == id);
-        var ciclo = self.ciclos().find(x=>x.id == ciclo_id)
+        var ciclo = self.ciclos().find(x=>x.id == ciclo_id);
         self.info.alumno(alumno.primer_nombre+' '+alumno.segundo_nombre+' '+alumno.primer_apellido+' '+alumno.segundo_apellido);
         self.info.codigo(alumno.id);
+        self.info.foto(alumno.foto);
         self.info.direccion(alumno.direccion+' '+alumno.municipio.nombre+' '+alumno.municipio.departamento.nombre);
         self.info.ciclo(ciclo.ciclo);
     },

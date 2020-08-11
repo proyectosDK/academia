@@ -1,6 +1,7 @@
 <?php
 
 use App\Nota;
+use App\Ciclo;
 use App\Alumno;
 use App\NotasCurso;
 use App\Inscripcion;
@@ -19,7 +20,7 @@ class AlumnoSeeder extends Seeder
     {
         //insertar notas.
 
-        for($i=0; $i<10; $i++){
+        for($i=0; $i<100; $i++){
             $data = new Alumno();
             $data->primer_nombre = 'nombre alumno '.$i;
             $data->primer_apellido = 'apellido alumno '.$i;
@@ -31,18 +32,22 @@ class AlumnoSeeder extends Seeder
             $data->fecha_nac = '1992-03-05';
             $data->save(); 
 
-            $ins = new Inscripcion;  
-            $ins->ciclo_id = 1;
-            $ins->alumno_id = $data->id;
-            $ins->instituciones_educativa_id = 1;
-            $ins->fecha = '2020-08-01';
-            $ins->save();
+            $ciclos = Ciclo::All()->random(rand(6,10));
 
-            for ($j=1; $j<5; $j++){
-                $cursos = new CursoInscripcion;
-                $cursos->curso_id = $j;
-                $cursos->inscripcion_id = $ins->id;
-                $cursos->save();
+            foreach ($ciclos as $c) {
+                $ins = new Inscripcion;  
+                $ins->ciclo_id = $c->id;
+                $ins->alumno_id = $data->id;
+                $ins->instituciones_educativa_id = 1;
+                $ins->fecha = $c->ciclo.'-08-01';
+                $ins->save();
+
+                for ($j=1; $j<5; $j++){
+                    $cursos = new CursoInscripcion;
+                    $cursos->curso_id = $j;
+                    $cursos->inscripcion_id = $ins->id;
+                    $cursos->save();
+                }
             }
         }
 

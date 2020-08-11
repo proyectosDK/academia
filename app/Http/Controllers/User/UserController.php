@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\ApiController;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends ApiController
 {
@@ -46,7 +47,17 @@ class UserController extends ApiController
         ];
         
         $this->validate($request, $reglas);
+
+        $imagePath = '';
+        if (preg_match('/^data:image\/(\w+);base64,/', $request->image_file)) {
+            $data = substr($request->image_file, strpos($request->image_file, ',') + 1);
+            $data = base64_decode($data);
+            $imagePath = 'users/'.$request->codigo.'_'.time().'.png';;
+            Storage::disk('images')->put($imagePath, $data);
+        }
+
         $data = $request->all();
+        $data['avatar'] = $imagePath;
         $data['password'] = bcrypt($request->password);
         $data['email'] = $request->email;
 
@@ -71,12 +82,19 @@ class UserController extends ApiController
 
         $this->validate($request, $reglas);
 
+        if($request->image_file != null || $request->image_file != ''){
+            $imagePath = '';
+            if (preg_match('/^data:image\/(\w+);base64,/', $request->image_file)) {
+                $data = substr($request->image_file, strpos($request->image_file, ',') + 1);
+                $data = base64_decode($data);
+                $imagePath = 'users/'.$request->nombre1.'_'.time().'.png';;
+                Storage::disk('images')->put($imagePath, $data);
+            }
+            $user->avatar = $imagePath;
+        }
+
         $user->tipo_usuario_id = $request->tipo_usuario_id;
         $user->email = $request->email;
-
-         if (!$user->isDirty()) {
-            return $this->errorResponse('Se debe especificar al menos un valor diferente para actualizar', 422);
-        }
 
         $user->save();  
 

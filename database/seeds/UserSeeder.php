@@ -11,6 +11,7 @@ class UserSeeder extends Seeder
        $data->email = 'admin@admin.com';
        $data->password = bcrypt('admin123');
        $data->tipo_usuario_id = 1;
+       $data->avatar = '_1597084527.png';
        $data->save();
 
        $data = new User();

@@ -226,6 +226,7 @@ model.alumnoController = {
         //llamada al servicio
         alumnoService.getAll()
         .then(r => {
+            r.data = JSON.parse(JSON.stringify(r.data).replace(/null/g, '""'))
             self.alumnos(r.data);
         })
         .catch(r => {});

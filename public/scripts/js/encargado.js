@@ -182,6 +182,7 @@ model.encargadoController = {
         //llamada al servicio
         encargadoService.getAll()
         .then(r => {
+            r.data = JSON.parse(JSON.stringify(r.data).replace(/null/g, '""'))
             self.encargados(r.data);
         })
         .catch(r => {});

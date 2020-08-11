@@ -98,7 +98,7 @@ class AlumnoController extends ApiController
                 $imagePath = $request->nombre1.'_'.time().'.png';;
                 Storage::disk('images')->put($imagePath, $data);
             }
-            $persona->foto = $imagePath;
+            $alumno->foto = $imagePath;
         }
 
         $alumno->save(); 

@@ -7,7 +7,9 @@ model.userController = {
         email: ko.observable(""),
         password: ko.observable(""),
         password_confirmation: ko.observable(""),
-        old_password: ko.observable("")
+        old_password: ko.observable(""),
+        avatar: ko.observable(""),
+        image_file: ko.observable("")
     },
 
     users: ko.observableArray([]),
@@ -25,6 +27,7 @@ model.userController = {
         form.id(data.id);
         form.tipo_usuario_id(data.tipo_usuario_id);
         form.email(data.email);
+        form.avatar(data.avatar);
     },
 
     //nuevo registro, limpiar datos del formulario
@@ -33,7 +36,7 @@ model.userController = {
        self.clearData();
 
        self.insertMode(true);
-       self.editMode(true);
+       self.editMode(false);
        self.gridMode(false);
     },
    //limpiar formulario
@@ -50,6 +53,18 @@ model.userController = {
         });
     },
 
+    //image user profile
+    PreviewAvatar: function () {
+        let self = model.userController;
+        var oFReader = new FileReader();
+        oFReader.readAsDataURL(document.getElementById("foto").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            self.user.image_file = oFREvent.target.result;
+            document.getElementById("previewFoto").src = oFREvent.target.result;
+        };
+    },
+
 
     //editar registros del formulario
     editar: function (data){
@@ -58,7 +73,7 @@ model.userController = {
 
         self.editMode(true);
         self.gridMode(false);
-        self.insertMode(true);
+        self.insertMode(false);
     },
 
     createOrEdit(){

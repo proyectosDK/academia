@@ -13,7 +13,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a href="/" class="navbar-brand"><img height="50px" src="{{asset('img/logo.jpg')}}" alt=""></a>
+                            <a href="/" class="navbar-brand"><img height="90px" src="{{asset('img/logo.jpg')}}" alt=""></a>
                 
                         </header>
                 
@@ -39,7 +39,9 @@
                 
                 
                         <div class="collapse navbar-collapse navbar-ex1-collapse">
-                                <h3 class="text-center"> SISTEMA ADMINISTRATIVO ESTUDIANTIL</h3>
+                                <h3 class="text-center"> ACADEMIA Y CENTRO DE APRENDIZAJE DE TECNOLOGÍAS DE LA INFORMACIÓN Y LA COMUNICACIÓN</h3>
+                                <h3 class="text-center"> "SAN JUDAS TADEO"</h3>
+                                 
                             <!-- .nav 
                             <ul class="nav navbar-nav">
                                 <li><a href="dashboard.html">Dashboard</a></li>

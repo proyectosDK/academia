@@ -5,7 +5,7 @@
 
       <div class="form-signin">
     <div class="text-center">
-        <img src="{{asset('img/logo.jpg')}}" alt="Metis Logo">
+        <img src="{{asset('img/logo.jpg')}}" alt="Metis Logo" height="150px" width="200px">
     </div>
     <hr>
     <div class="tab-content">
@@ -46,11 +46,6 @@
                             </div>
                         </div>-->
                             <div>
-                                <div class="checkbox">
-                                  <label>
-                                    <input type="checkbox"> Recuerdame
-                                  </label>
-                                </div>
                                 <button type="submit" class="btn btn-lg btn-primary btn-block">
                                     Ingresar
                                 </button>

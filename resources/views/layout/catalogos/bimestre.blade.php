@@ -16,7 +16,6 @@
 			                    <thead>
 			                    <tr>
 			                    	<th>#</th>
-			                        <th>Nombre</th>
 			                        <th>Bimestre</th>
 			                    </tr>
 			                    </thead>
@@ -27,9 +26,6 @@
                                     <tr>
                                     	<td data-bind="text: id"></td>
                                         <td data-bind="text: nombre"></td>
-                                        <td width="10%">
-                                            <a href="#" class="btn btn-info btn-xs" data-toggle="tooltip" title="ver"><i class="fa fa-eye"></i></a>
-                                        </td>
                                     </tr>
 
                                 </tbody>              

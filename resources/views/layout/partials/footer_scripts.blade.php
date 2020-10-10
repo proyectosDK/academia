@@ -54,6 +54,7 @@
 <script src="{{asset('scripts/js/tipoUsuario.js')}}"></script>
 <script src="{{asset('scripts/js/user.js')}}"></script>
 
+
 <!-- scripts  services-->
 <script src="{{asset('scripts/services/CursoService.js')}}"></script>
 <script src="{{asset('scripts/services/BimestreService.js')}}"></script>

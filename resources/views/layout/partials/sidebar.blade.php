@@ -5,7 +5,7 @@
             <span class="fa fa-user"></span>
         </div>
         <div class="user-wrapper bg-dark">
-            <a class="user-link" href="/">
+            <a class="user-link" href="{{ route('home') }}">
               @if(isset(Auth::user()->avatar))
                     <img src="{{URL::asset('img/'.Auth::user()->avatar)}}" class="media-object img-thumbnail user-img" alt="User Image" style="height: 70px; width: 60px;">
               @else

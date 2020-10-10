@@ -105,14 +105,14 @@
 	var colors = ['#BF3F3F','#BF7F3F','#BF3FBF','#3FBF7F','#161C19','#201C9B','#ED1C11','#5E0B07','#B9B6B6','#2F272D','#987654'];
 	$(document).ready(function () {
 
-		$.get('/dashboard/info', function(data){
+		$.get('dashboard/info', function(data){
             document.getElementById("al").innerHTML = data.alumnos
             document.getElementById("insc").innerHTML = data.inscripciones
             document.getElementById("enc").innerHTML = data.encargados
             document.getElementById("inst").innerHTML = data.instituciones
         });
 
-		$.get('/dashboard/ciclos', function(data){
+		$.get('dashboard/ciclos', function(data){
             resumen(data,'ciclosChart');
             var table = [];
             for(var $i = 0; $i<data.info.length; $i++){
@@ -124,11 +124,11 @@
             model.cicloController.info_ciclos(table)
         });
 
-        $.get('/dashboard/cursos', function(data){
+        $.get('dashboard/cursos', function(data){
             resumenCursos(data)
         }); 
 
-        $.get('/dashboard/instituciones', function(data){
+        $.get('dashboard/instituciones', function(data){
             resumen(data,'institucionesChart')
         }); 
     });

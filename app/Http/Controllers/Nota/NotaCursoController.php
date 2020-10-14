@@ -9,6 +9,10 @@ use App\Http\Controllers\ApiController;
 
 class NotaCursoController extends ApiController
 {
+	public function __construct()
+    {
+        parent::__construct();//retornar registro por id
+    }
     /**
      */
     public function index(Nota $nota)

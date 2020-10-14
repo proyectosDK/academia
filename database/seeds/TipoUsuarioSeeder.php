@@ -17,7 +17,7 @@ class TipoUsuarioSeeder extends Seeder
         $data->save();
 
         $data = new TipoUsuario();
-        $data->nombre = 'usuario comun';
+        $data->nombre = 'secretaria';
         $data->save();
     }
 }

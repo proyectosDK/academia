@@ -9,6 +9,10 @@ use App\Http\Controllers\ApiController;
 
 class CicloInscripcionController extends ApiController
 {
+	public function __construct()
+    {
+        parent::__construct();
+    }
     public function index(Ciclo $ciclo)
     {
         $inscripciones = $ciclo->inscripciones()->with('alumno','cursos.nota_curso.nota_c')->get();

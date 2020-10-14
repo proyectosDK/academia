@@ -32,12 +32,13 @@
                 </a>
               </li>
               <li class="">
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <a href="javascript:;">
                   <i class="fa fa-building "></i>
                   <span class="link-title">Catálogos</span>
                   <span class="fa arrow"></span>
                 </a>
-                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('departamentosView') }}">
@@ -78,7 +79,6 @@
                   <span class="link-title">Administración</span>
                   <span class="fa arrow"></span>
                 </a>
-                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('encargadosView') }}">
@@ -103,34 +103,33 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Inscripciones</a>
                   </li>
                 </ul>
-                @endif
               </li>
 
               <li class="">
-                @if(Auth::user()->tipo_usuario->nombre == "administrador")
+                
                 <a href="javascript:;">
                   <i class="fa fa-file "></i>
                   <span class="link-title">Notas</span>
                   <span class="fa arrow"></span>
                 </a>
-                
+                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('notasView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Ingresar notas</a>
                   </li>
                 </ul>
+                @endif
                 <ul class="collapse">
                   <li>
                     <a href="{{ route('boletasView') }}">
                       <i class="fa fa-angle-right"></i>&nbsp; Consulta notas</a>
                   </li>
                 </ul>
-                @endif
+                
               </li>
 
               <li class="">
-                @if(Auth::user()->tipo_usuario->nombre == "administrador")
                 <a href="javascript:;">
                   <i class="fa fa-file "></i>
                   <span class="link-title">Consultas</span>
@@ -143,7 +142,6 @@
                       <i class="fa fa-angle-right"></i>&nbsp; Reportes</a>
                   </li>
                 </ul>
-                @endif
               </li>
 
               <li class="">

@@ -9,14 +9,14 @@ class UserSeeder extends Seeder
     {
        $data = new User();
        $data->email = 'admin@admin.com';
-       $data->password = bcrypt('admin123');
+       $data->password = bcrypt('administrador');
        $data->tipo_usuario_id = 1;
        $data->avatar = '_1597084527.png';
        $data->save();
 
        $data = new User();
-       $data->email = 'usuario@usuario.com';
-       $data->password = bcrypt('usuario');
+       $data->email = 'secretaria@secretaria.com';
+       $data->password = bcrypt('secretaria');
        $data->tipo_usuario_id = 2;
        $data->save();
     }

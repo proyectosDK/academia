@@ -87,7 +87,10 @@ model.boletaController = {
         .then(r => {
             self.setData(r.data)
         })
-        .catch(r => {});
+        .catch(r => {
+            $('#ver').modal('hide');
+            toastr.error(r.response.data.error)
+        });
     },
 
     getAlumnos:function(){

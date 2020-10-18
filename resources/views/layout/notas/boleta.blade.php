@@ -94,7 +94,7 @@
                 <th>segundo bimestre</th>
                 <th>tercer bimestre</th>
                 <th>cuarto bimestre</th>
-                <th>nota final</th>
+                <th>nota final(promedio)</th>
                 <th>estado</th>
             </tr>
             </thead>

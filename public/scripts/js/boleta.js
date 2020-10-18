@@ -41,18 +41,25 @@ model.boletaController = {
                 nf: 0,
                 estado: 3
             };
+            n_prom = 0;
+            nf = false;
             d.nota_curso.forEach(function(n){
                 if(n.nota_c.bimestre.nombre.toLowerCase() == 'primer bimestre'){
                    nota.pb = n.nota
+                   n_prom+=1;
                 }
                 if(n.nota_c.bimestre.nombre.toLowerCase() == 'segundo bimestre'){
                    nota.sb = n.nota
+                   n_prom+=1;
                 }
                 if(n.nota_c.bimestre.nombre.toLowerCase() == 'tercer bimestre'){
                    nota.tb = n.nota
+                   n_prom+=1;
                 }
                 if(n.nota_c.bimestre.nombre.toLowerCase() == 'cuarto bimestre'){
                    nota.cb = n.nota
+                   n_prom+=1;
+                   nf = true;
                 }
                 
             });
@@ -60,9 +67,13 @@ model.boletaController = {
             nota.nf = parseInt(((nota.pb == null ? 0 : nota.pb)
                                 +(nota.sb == null ? 0 : nota.sb)
                                 +(nota.tb == null ? 0 : nota.tb)
-                                +(nota.cb == null ? 0 : nota.cb)) / 4)
+                                +(nota.cb == null ? 0 : nota.cb)) / n_prom)
 
-            if(nota.pb !== null && nota.sb && nota.tb !== null && nota.cb !== null){
+            if(isNaN(nota.nf)){
+                nota.nf = 0;
+            }
+
+            if(nf){
                 nota.nf < 60 ? nota.estado = 0 : nota.estado = 1
             };
 

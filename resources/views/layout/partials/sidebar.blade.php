@@ -166,21 +166,17 @@
                 @endif
                 <ul class="collapse">
                   <li>
-                    <a href="{{ route('cambiarContrasenaView') }}">
+                    <a href="#"  target="_blank">
                       <i class="fa fa-angle-right"></i>&nbsp; Cambiar contraseña</a>
                   </li>
                 </ul>
               </li>
               <li class="">
-                <a href="#">
+                <a href="{{ asset('documentos/manual.pdf') }}" target="_blank">
                   <i class="fa fa-file"></i><span class="link-title">&nbsp; Ayuda</span>
                 </a>
               </li>
-              <li class="">
-                <a href="#">
-                  <i class="fa fa-file"></i><span class="link-title">&nbsp; a cerca de</span>
-                </a>
-              </li><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+              <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
               <li class="">
                 
               </li>

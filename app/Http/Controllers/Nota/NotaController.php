@@ -14,7 +14,7 @@ class NotaController extends ApiController
     public function __construct()
     {
         parent::__construct();//retornar registro por id
-        #$this->middleware('consulta');
+        $this->middleware('admin');
     }
 
     //retorna vista principal del index

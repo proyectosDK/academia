@@ -6,9 +6,11 @@ use App\Curso;
 use App\NotasCurso;
 use App\Inscripcion;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class CursoInscripcion extends Model
-{
+class CursoInscripcion extends Model implements Auditable
+{ 
+    use \OwenIt\Auditing\Auditable;
     protected $table = 'cursos_inscripcions';
 
     protected $fillable = [

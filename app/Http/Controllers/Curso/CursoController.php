@@ -12,7 +12,7 @@ class CursoController extends ApiController
     public function __construct()
     {
         parent::__construct();
-        $this->middleware('admin')->except(['index']);
+        $this->middleware('admin')->except('index');
     }
 
     public function view()

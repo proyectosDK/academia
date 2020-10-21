@@ -12,7 +12,6 @@ class EncargadoController extends ApiController
     public function __construct()
     {
         parent::__construct();//retornar registro por id
-        #$this->middleware('consulta');
     }
 
     //retorna vista principal del index

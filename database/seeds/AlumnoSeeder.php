@@ -20,7 +20,7 @@ class AlumnoSeeder extends Seeder
     {
         //insertar notas.
 
-        for($i=0; $i<100; $i++){
+        for($i=0; $i<10; $i++){
             $data = new Alumno();
             $data->primer_nombre = 'nombre alumno '.$i;
             $data->primer_apellido = 'apellido alumno '.$i;
@@ -51,7 +51,7 @@ class AlumnoSeeder extends Seeder
             }
         }
 
-        for($i=1; $i<=4; $i++){
+        for($i=1; $i<=2; $i++){
             $nota = new Nota;
             $nota->ciclo_id = 1;
             $nota->bimestre_id =$i; 

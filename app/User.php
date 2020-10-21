@@ -9,7 +9,7 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class User extends Authenticatable implements Auditable
 {
-    use Notifiable;
+	use Notifiable;
     use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [

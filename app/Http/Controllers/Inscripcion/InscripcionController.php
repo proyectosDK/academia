@@ -14,7 +14,7 @@ class InscripcionController extends ApiController
    public function __construct()
     {
         parent::__construct();//retornar registro por id
-        $this->middleware('admin')->except('index');
+        //$this->middleware('admin')->except('index');
     }
 
     //retorna vista principal del index

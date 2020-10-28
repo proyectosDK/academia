@@ -78,8 +78,8 @@ Route::get('tipoUsuariosView', 'TipoUsuario\TipoUsuarioController@view')->name('
 Route::resource('tipoUsuarios', 'TipoUsuario\TipoUsuarioController', ['except' => ['create', 'edit']]);
 
 
-Route::get('usersView', 'User\userController@view')->name('usersView');
-Route::resource('users', 'User\userController', ['except' => ['create', 'edit']]);
+Route::get('usersView', 'User\UserController@view')->name('usersView');
+Route::resource('users', 'User\UserController', ['except' => ['create', 'edit']]);
 
-Route::get('cambiarContrasenaView', 'User\userController@viewCambiarContraseña')->name('cambiarContrasenaView');
+Route::get('cambiarContrasenaView', 'User\UserController@viewCambiarContraseña')->name('cambiarContrasenaView');
 Route::name('cambiar_contraseña')->post('users_change_password','User\UserController@changePassword');

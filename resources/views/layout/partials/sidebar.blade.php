@@ -166,7 +166,7 @@
                 @endif
                 <ul class="collapse">
                   <li>
-                    <a href="#"  target="_blank">
+                    <a href="{{route('cambiarContrasenaView') }}" >
                       <i class="fa fa-angle-right"></i>&nbsp; Cambiar contraseña</a>
                   </li>
                 </ul>
